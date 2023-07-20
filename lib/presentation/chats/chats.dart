@@ -5,7 +5,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 
 class Chats extends StatefulWidget {
-  const Chats({Key? key}) : super(key: key);
+  final Function(int) onTap;
+
+  const Chats({
+    Key? key,
+    required this.onTap,
+  }) : super(key: key);
 
   @override
   State<Chats> createState() => _ChatsState();
@@ -13,6 +18,13 @@ class Chats extends StatefulWidget {
 
 class _ChatsState extends State<Chats> {
   final _chatsCubit = GetIt.I<ChatsCubit>();
+  int? _selectedChatId;
+
+  @override
+  void dispose() {
+    _chatsCubit.close();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,8 +40,11 @@ class _ChatsState extends State<Chats> {
             itemCount: state.cardList.length,
             itemBuilder: (context, index) => ChatCard(
               state.cardList[index],
-              isSelected: false,
-              onTap: (){},
+              isSelected: state.cardList[index].id == _selectedChatId,
+              onTap: () {
+                setState(() => _selectedChatId = state.cardList[index].id);
+                widget.onTap(state.cardList[index].id);
+              },
             ),
           );
         }

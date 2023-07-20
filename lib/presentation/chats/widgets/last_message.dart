@@ -1,4 +1,4 @@
-import 'package:chat/domain/models/chat_last_message.dart';
+import 'package:chat/domain/models/chat/chat_last_message.dart';
 import 'package:chat/gen/assets.gen.dart';
 import 'package:chat/presentation/widgets/app_network_image.dart';
 import 'package:flutter/material.dart';

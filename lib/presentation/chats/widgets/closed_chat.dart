@@ -1,9 +1,9 @@
-import 'package:chat/domain/models/chat_status.dart';
+import 'package:chat/domain/models/chat/chat_status_model.dart';
 import 'package:chat/presentation/styles/color_styles.dart';
 import 'package:flutter/material.dart';
 
 class ClosedChat extends StatelessWidget {
-  final ChatStatus chatStatus;
+  final ChatStatusModel chatStatus;
 
   const ClosedChat(this.chatStatus, {Key? key}) : super(key: key);
 

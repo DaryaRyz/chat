@@ -1,4 +1,4 @@
-import 'package:chat/domain/models/chat_status.dart';
+import 'package:chat/domain/models/chat/chat_status_model.dart';
 
 class ChatStatusDto {
   final String status;
@@ -8,9 +8,9 @@ class ChatStatusDto {
       : status = map['status'],
         rate = map['rate'];
 
-  static ChatStatus toModel(ChatStatusDto dto) {
-    return ChatStatus(
-      status: ChatStatusType.values.byName(dto.status),
+  static ChatStatusModel toModel(ChatStatusDto dto) {
+    return ChatStatusModel(
+      type: ChatStatusType.values.byName(dto.status),
       rate: dto.rate,
     );
   }

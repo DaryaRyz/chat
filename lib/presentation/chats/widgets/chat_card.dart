@@ -1,5 +1,5 @@
-import 'package:chat/domain/models/chat_card_model.dart';
-import 'package:chat/domain/models/chat_status.dart';
+import 'package:chat/domain/models/chat/chat_model.dart';
+import 'package:chat/domain/models/chat/chat_status_model.dart';
 import 'package:chat/presentation/chats/widgets/chat_avatar.dart';
 import 'package:chat/presentation/chats/widgets/last_message.dart';
 import 'package:chat/presentation/chats/widgets/marks_widget/marks_widget.dart';
@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class ChatCard extends StatefulWidget {
-  final ChatCardModel chat;
+  final ChatModel chat;
   final bool isSelected;
   final VoidCallback onTap;
 
@@ -39,7 +39,7 @@ class _ChatCardState extends State<ChatCard> {
           child: Row(
             children: [
               ChatAvatar(
-                image: widget.chat.image,
+                image: widget.chat.userInfo.image,
                 socialType: widget.chat.socialType,
               ),
               const SizedBox(width: 14),
@@ -49,7 +49,7 @@ class _ChatCardState extends State<ChatCard> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      widget.chat.userName,
+                      widget.chat.userInfo.userName,
                       overflow: TextOverflow.ellipsis,
                       style: const TextStyle(
                         fontSize: 14,
@@ -57,7 +57,7 @@ class _ChatCardState extends State<ChatCard> {
                       ),
                     ),
                     MarksWidget(widget.chat.marks),
-                    widget.chat.chatStatus.status == ChatStatusType.open
+                    widget.chat.chatStatus.type == ChatStatusType.open
                         ? LastMessage(widget.chat.lastMessage)
                         : ClosedChat(widget.chat.chatStatus),
                   ],

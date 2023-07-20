@@ -1,7 +1,6 @@
 import 'dart:async';
-
-import 'package:chat/domain/models/chat_card_model.dart';
+import 'package:chat/domain/models/chat/chat_model.dart';
 
 abstract interface class IChatRepository {
-  FutureOr<List<ChatCardModel>> getChats();
+  FutureOr<List<ChatModel>> getChats();
 }

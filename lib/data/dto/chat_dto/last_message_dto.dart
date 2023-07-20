@@ -1,4 +1,4 @@
-import 'package:chat/domain/models/chat_last_message.dart';
+import 'package:chat/domain/models/chat/chat_last_message.dart';
 
 class LastMessageDto {
   final String? text;

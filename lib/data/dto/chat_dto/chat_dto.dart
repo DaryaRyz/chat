@@ -1,12 +1,12 @@
 import 'package:chat/data/dto/chat_status_dto.dart';
-import 'package:chat/data/dto/last_message_dto.dart';
-import 'package:chat/domain/models/chat_card_model.dart';
+import 'package:chat/data/dto/chat_dto/last_message_dto.dart';
+import 'package:chat/data/dto/user_info_dto.dart';
+import 'package:chat/domain/models/chat/chat_model.dart';
 import 'package:chat/presentation/styles/color_styles.dart';
 
 class ChatDto {
-  final String id;
-  final String image;
-  final String userName;
+  final int id;
+  final UserInfoDto userInfo;
   final String socialType;
   final String date;
   final List? marks;
@@ -16,8 +16,7 @@ class ChatDto {
 
   ChatDto.fromMap(Map<String, dynamic> map)
       : id = map['id'],
-        image = map['image'],
-        userName = map['userName'],
+        userInfo = UserInfoDto.fromMap(map['userInfo']),
         socialType = map['socialType'],
         date = map['date'],
         marks =
@@ -27,11 +26,10 @@ class ChatDto {
         chatStatus = ChatStatusDto.fromMap(map['chatStatus']),
         unreadMessagesCount = map['unreadMessagesCount'];
 
-  static ChatCardModel toModel(ChatDto dto) {
-    return ChatCardModel(
+  static ChatModel toModel(ChatDto dto) {
+    return ChatModel(
       id: dto.id,
-      image: dto.image,
-      userName: dto.userName,
+      userInfo: UserInfoDto.toModel(dto.userInfo),
       date: DateTime.parse(dto.date),
       socialType: SocialType.values.byName(dto.socialType),
       chatStatus: ChatStatusDto.toModel(dto.chatStatus),

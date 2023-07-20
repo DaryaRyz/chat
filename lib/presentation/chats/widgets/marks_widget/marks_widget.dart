@@ -1,4 +1,4 @@
-import 'package:chat/domain/models/chat_card_model.dart';
+import 'package:chat/domain/models/chat/chat_model.dart';
 import 'package:chat/presentation/chats/widgets/marks_widget/mark.dart';
 import 'package:chat/presentation/chats/widgets/marks_widget/show_all_marks_button.dart';
 import 'package:flutter/cupertino.dart';

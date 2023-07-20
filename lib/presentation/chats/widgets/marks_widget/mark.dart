@@ -1,4 +1,4 @@
-import 'package:chat/domain/models/chat_card_model.dart';
+import 'package:chat/domain/models/chat/chat_model.dart';
 import 'package:chat/presentation/styles/color_styles.dart';
 import 'package:flutter/material.dart';
 

@@ -1,25 +1,24 @@
-import 'package:chat/domain/models/chat_status.dart';
-import 'package:chat/domain/models/chat_last_message.dart';
+import 'package:chat/domain/models/chat/chat_last_message.dart';
+import 'package:chat/domain/models/chat/chat_status_model.dart';
+import 'package:chat/domain/models/user_info.dart';
 import 'package:flutter/material.dart';
 
 enum SocialType { whatsApp, avito, vk }
 
 
-class ChatCardModel {
-  final String id;
-  final String image;
-  final String userName;
+class ChatModel {
+  final int id;
+  final UserInfo userInfo;
   final DateTime date;
   final SocialType socialType;
   final List<MarkModel>? marks;
   final LastMessageModel? lastMessage;
-  final ChatStatus chatStatus;
+  final ChatStatusModel chatStatus;
   final int unreadMessagesCount;
 
-  ChatCardModel({
+  ChatModel({
     required this.id,
-    required this.image,
-    required this.userName,
+    required this.userInfo,
     required this.socialType,
     this.marks,
     this.lastMessage,

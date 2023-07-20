@@ -1,4 +1,4 @@
-import 'package:chat/domain/models/chat_card_model.dart';
+import 'package:chat/domain/models/chat/chat_model.dart';
 import 'package:chat/domain/repository/i_chat_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
@@ -38,7 +38,7 @@ class ChatsErrorState extends ChatsState {
 class ChatsLoadingState extends ChatsState {}
 
 class ChatsReadyState extends ChatsState {
-  final List<ChatCardModel> cardList;
+  final List<ChatModel> cardList;
 
   ChatsReadyState({required this.cardList});
 }

@@ -4,6 +4,7 @@ abstract class ColorStyles {
   static const backgroundColor = Color.fromRGBO(255, 255, 255, 1);
   static const mainItemsColor = Color.fromRGBO(232, 236, 243, 1);
   static const yellowColor = Color.fromRGBO(244, 215, 59, 1);
+  static const redColor =  Color.fromRGBO(206, 31, 31, 1);
 
   ///texts
   static const mainTextColor = Color.fromRGBO(0, 0, 0, 1);
